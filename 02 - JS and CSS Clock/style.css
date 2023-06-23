@@ -1,0 +1,198 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #001C30; 
+    font-family: sans-serif;
+    
+}
+
+.clock {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: 18px solid  #FCE9F1;
+}
+
+.clock-material {
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    padding: 4%;
+}
+.clock::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: red;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.clock-card {
+    position: absolute;
+    width: 92%;
+    height: 92%;
+}
+
+.number {
+    text-align: center;
+}
+
+.number div {
+    font-size: 28px;
+    color: #fff;
+}
+
+.number:nth-child(1) {
+    transform: rotate(30deg);
+}
+.number:nth-child(1) div{
+    transform: rotate(-30deg);
+}
+
+.number:nth-child(2) {
+    transform: rotate(60deg);
+}
+.number:nth-child(2) div{
+    transform: rotate(-60deg);
+}
+
+.number:nth-child(3) {
+    transform: rotate(90deg);
+}
+.number:nth-child(3) div{
+    transform: rotate(-90deg);
+}
+
+.number:nth-child(4) {
+    transform: rotate(120deg);
+}
+.number:nth-child(4) div{
+    transform: rotate(-120deg);
+}
+
+.number:nth-child(5) {
+    transform: rotate(150deg);
+}
+.number:nth-child(5) div{
+    transform: rotate(-150deg);
+}
+
+.number:nth-child(6) {
+    transform: rotate(180deg);
+}
+.number:nth-child(6) div{
+    transform: rotate(-180deg);
+}
+
+.number:nth-child(7) {
+    transform: rotate(210deg);
+}
+.number:nth-child(7) div{
+    transform: rotate(-210deg);
+}
+
+.number:nth-child(8) {
+    transform: rotate(240deg);
+}
+.number:nth-child(8) div{
+    transform: rotate(-240deg);
+}
+
+.number:nth-child(9) {
+    transform: rotate(270deg);
+}
+.number:nth-child(9) div{
+    transform: rotate(-270deg);
+}
+
+.number:nth-child(10) {
+    transform: rotate(300deg);
+}
+.number:nth-child(10) div{
+    transform: rotate(-300deg);
+}
+
+.number:nth-child(11) {
+    transform: rotate(330deg);
+}
+.number:nth-child(11) div{
+    transform: rotate(-330deg);
+}
+
+.number:nth-child(12) {
+    transform: rotate(360deg);
+}
+.number:nth-child(12) div{
+    transform: rotate(-360deg);
+}
+
+.clock-card:not(.number){
+    display: flex;
+    justify-content: center;
+}
+
+.clock .hour{
+    animation: round 43200s steps(60, end) infinite
+}
+.clock .minute {
+    animation: round 3600s steps(60, end) infinite
+}
+.clock .seconds {
+    animation: round 60s steps(60, end) infinite
+
+}
+
+.hour, .minute, .seconds {
+    transform: rotate(0deg);
+}
+
+.hour div {
+    margin-top: 30%;
+    width: 12px;
+    height:20%;
+    background-color: green;
+    border-radius: 30%;
+    z-index: 1;
+}
+
+.minute div {
+    margin-top: 20%;
+    width: 8px;
+    height:30%;
+    background-color: yellow;
+    border-radius: 30%;
+    z-index: 2;
+    
+
+}
+
+.seconds div {
+    margin-top: 15%;
+    width: 5px;
+    height:35%;
+    background-color: black;
+    border-radius: 10%;
+    z-index:3;
+
+}
+/* 
+@keyframes round {
+    to {
+        transform: rotate(360deg);
+    }
+} */
