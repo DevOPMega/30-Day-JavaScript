@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Type Ahead 👀</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+<body>
+
+  <form class="search-form">
+    <input type="text" class="search" placeholder="City or State" >
+    <ul class="suggestions">
+      <li>Filter for a city</li>
+      <li>or a state</li>
+    </ul>
+  </form>
+<script>
+const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+const searchTxt = document.querySelector(".search");
+const suggestions = document.querySelector(".suggestions");
+let jsonData = undefined
+
+const responseData = async () => {
+  const response = await fetch(endpoint);
+  const jsonData = await response.json();
+  return jsonData;
+}
+
+const getData = async () => {
+  jsonData = await responseData();
+}
+
+getData();
+
+searchTxt.addEventListener("keyup",(e)=>{
+  e.preventDefault();
+  console.log(this.value);
+  const filterData = jsonData.filter((data) => {
+    if (data["city"].includes(searchTxt.value) || data["state"].includes(searchTxt.value)){
+      return data
+    }
+  });
+  showList(filterData);
+});
+
+const showList = (filterData) => {
+  suggestions.innerHTML = "";
+  filterData.forEach(data => {
+    suggestions.innerHTML += `
+      <li>${data.city}, ${data.state}<span class="population">${data.population}</li>
+      `;
+  })
+}
+
+// find the city and state from data 
+
+
+
+</script>
+</body>
+</html>
